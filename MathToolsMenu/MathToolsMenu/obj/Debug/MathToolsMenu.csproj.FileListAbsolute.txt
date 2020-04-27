@@ -1,0 +1,9 @@
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\bin\Debug\MathToolsMenu.exe.config
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\bin\Debug\MathToolsMenu.exe
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\bin\Debug\MathToolsMenu.pdb
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.csprojAssemblyReference.cache
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.Form1.resources
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.Properties.Resources.resources
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.csproj.GenerateResource.cache
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.exe
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.pdb
