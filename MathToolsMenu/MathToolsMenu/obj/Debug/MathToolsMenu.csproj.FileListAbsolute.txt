@@ -7,3 +7,9 @@ C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToo
 C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.csproj.GenerateResource.cache
 C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.exe
 C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.pdb
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.CalculatorControl.resources
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.HomePageControl.resources
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.MathFuntionControl1.resources
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.QuadrangleControl.resources
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.TriangleControl.resources
+C:\Uczelnia\github\MathMenuProject\MathToolsMenu\MathToolsMenu\obj\Debug\MathToolsMenu.CircleControl.resources
