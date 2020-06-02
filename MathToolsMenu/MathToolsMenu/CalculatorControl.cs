@@ -90,7 +90,11 @@ namespace MathToolsMenu
                 actionSymbol = symbol;
                 mainTextBox.Text =firstNumber + symbol;
             }
-            if (secondNumber != null && secondNumber.Length!=0)
+            else if (actionSymbol == '/' && double.Parse(secondNumber) == 0)
+            {
+                MessageBox.Show("Niedozwolone dzielenie przez 0");
+            }
+            else if (secondNumber != null && secondNumber.Length != 0)
             {
                 calculationFunction();
                 actionSymbol = symbol;
@@ -103,66 +107,73 @@ namespace MathToolsMenu
         public void calculationFunction()
         {
             double calcResult=0;
-            if(secondNumber!=null && secondNumber.Length!=0)
+            if (actionSymbol == '/' && double.Parse(secondNumber) == 0)
             {
-                switch(actionSymbol)
+                MessageBox.Show("Niedozwolone dzielenie przez 0");
+            }
+            else
+            {
+                if (secondNumber != null && secondNumber.Length != 0)
                 {
-                    case ('+'):
-                        {
-                            calcResult = double.Parse(firstNumber) + double.Parse(secondNumber);
-                            firstNumber = calcResult.ToString();
-                            mainTextBox.Text = firstNumber;
-                            mainTextBox2.Text = null;
-                            secondNumber = null;
-                            actionSymbol = ' ';
-                            buffer = 1;
-                        }
-                        break;
-                    case ('-'):
-                        {
-                            calcResult = double.Parse(firstNumber) - double.Parse(secondNumber);
-                            firstNumber = calcResult.ToString();
-                            mainTextBox.Text = firstNumber;
-                            mainTextBox2.Text = null;
-                            secondNumber = null;
-                            actionSymbol = ' ';
-                            buffer = 1;
-                        }
-                        break;
-                    case ('*'):
-                        {
-                            calcResult = double.Parse(firstNumber) * double.Parse(secondNumber);
-                            firstNumber = calcResult.ToString();
-                            mainTextBox.Text = firstNumber;
-                            mainTextBox2.Text = null;
-                            secondNumber = null;
-                            actionSymbol = ' ';
-                            buffer = 1;
-                        }
-                        break;
-                    case ('/'):
-                        {
-                            calcResult = double.Parse(firstNumber) / double.Parse(secondNumber);
-                            firstNumber = calcResult.ToString();
-                            mainTextBox.Text = firstNumber;
-                            mainTextBox2.Text = null;
-                            secondNumber = null;
-                            actionSymbol = ' ';
-                            buffer = 1; 
-                        }
-                        break;
-                    case ('%'):
-                        {
-                            calcResult = double.Parse(firstNumber) /100 * double.Parse(secondNumber);
-                            firstNumber = calcResult.ToString();
-                            mainTextBox.Text = firstNumber;
-                            mainTextBox2.Text = null;
-                            secondNumber = null;
-                            actionSymbol = ' ';
-                            buffer = 1;
-                        }
-                        break;
+                    switch (actionSymbol)
+                    {
+                        case ('+'):
+                            {
+                                calcResult = double.Parse(firstNumber) + double.Parse(secondNumber);
+                                firstNumber = calcResult.ToString();
+                                mainTextBox.Text = firstNumber;
+                                mainTextBox2.Text = null;
+                                secondNumber = null;
+                                actionSymbol = ' ';
+                                buffer = 1;
+                            }
+                            break;
+                        case ('-'):
+                            {
+                                calcResult = double.Parse(firstNumber) - double.Parse(secondNumber);
+                                firstNumber = calcResult.ToString();
+                                mainTextBox.Text = firstNumber;
+                                mainTextBox2.Text = null;
+                                secondNumber = null;
+                                actionSymbol = ' ';
+                                buffer = 1;
+                            }
+                            break;
+                        case ('*'):
+                            {
+                                calcResult = double.Parse(firstNumber) * double.Parse(secondNumber);
+                                firstNumber = calcResult.ToString();
+                                mainTextBox.Text = firstNumber;
+                                mainTextBox2.Text = null;
+                                secondNumber = null;
+                                actionSymbol = ' ';
+                                buffer = 1;
+                            }
+                            break;
+                        case ('/'):
+                            {
+                                calcResult = double.Parse(firstNumber) / double.Parse(secondNumber);
+                                firstNumber = calcResult.ToString();
+                                mainTextBox.Text = firstNumber;
+                                mainTextBox2.Text = null;
+                                secondNumber = null;
+                                actionSymbol = ' ';
+                                buffer = 1;
+                            }
+                            break;
+                        case ('%'):
+                            {
+                                calcResult = double.Parse(firstNumber) / 100 * double.Parse(secondNumber);
+                                firstNumber = calcResult.ToString();
+                                mainTextBox.Text = firstNumber;
+                                mainTextBox2.Text = null;
+                                secondNumber = null;
+                                actionSymbol = ' ';
+                                buffer = 1;
+                            }
+                            break;
 
+                    }
                 }
             }
             
@@ -173,15 +184,23 @@ namespace MathToolsMenu
         /// </summary>
         public void equalButtonFunction()
         {
-            
-            calculationFunction();
-            if (buffer == 1)
+
+
+            if (actionSymbol == '/' && double.Parse(secondNumber) == 0)
             {
-                buffer = 0;
-                resultTextBox.Text += firstNumber + Environment.NewLine;
-                mainTextBox.Text = null;
-                
-                firstNumber = null;
+                MessageBox.Show("Niedozwolone dzielenie przez 0");
+            }
+            else
+            {
+                calculationFunction();
+                if (buffer == 1)
+                {
+                    buffer = 0;
+                    resultTextBox.Text += firstNumber + Environment.NewLine;
+                    mainTextBox.Text = null;
+
+                    firstNumber = null;
+                }
             }
             
         }

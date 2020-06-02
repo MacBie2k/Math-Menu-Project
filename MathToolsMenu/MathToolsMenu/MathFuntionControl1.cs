@@ -112,6 +112,13 @@ namespace MathToolsMenu
             }
         }
         /// <summary>
+        /// Metoda oblczająca miejsce zerowe funkcji liniowej
+        /// </summary>
+        public void xLinealFuntion()
+        {
+            xLinealTextBox.Text = (double.Parse(linealBTextBox.Text) * -1 / double.Parse(linealATextBox.Text)).ToString();
+        }
+        /// <summary>
         /// Metoda wyświetlająca wykres funkcji liniowej i inicjująca inne metody
         /// </summary>
         /// <param name="sender"></param>
@@ -127,7 +134,7 @@ namespace MathToolsMenu
                 {
                     chart.Series[1].Points.AddXY(i, linealFunction(i));
                 }
-
+                xLinealFuntion();
                 typeLinealFunction();
             }
         }
@@ -166,6 +173,21 @@ namespace MathToolsMenu
             return a;
         }
         /// <summary>
+        /// Metoda czyszcząca wszystkie pola tekstowe funkcji kwadratowej
+        /// </summary>
+        public void squareClearAll()
+        {
+            pTextBox.Text = null;
+            qTextBox.Text = null;
+            sqrDeltaTextBox.Text = null;
+            deltaTextBox.Text = null;
+            basicFormTextBox.Text = null;
+            specialFormTextBox.Text = null;
+            canonicaTextBox.Text = null;
+            x1TextBox.Text = null;
+            x2TextBox.Text = null;
+        }
+        /// <summary>
         /// Metoda obliczająca miejsca zerowe funkcji kwadratowej
         /// </summary>
         public void xSquareFunction()
@@ -197,46 +219,54 @@ namespace MathToolsMenu
         /// </summary>
         public void pqFunction()
         {
-            pTextBox.Text = null;
-            qTextBox.Text = null;
-            double a = delta();
-            double p = Math.Round(((-1) * double.Parse(bBox.Text) / (2 * double.Parse(aBox.Text))),2);
-            double q = Math.Round(squareFunction(p),2);
-            pTextBox.Text = p.ToString();
-            qTextBox.Text = q.ToString();
+            
+                pTextBox.Text = null;
+                qTextBox.Text = null;
+                double a = delta();
+                double p = Math.Round(((-1) * double.Parse(bBox.Text) / (2 * double.Parse(aBox.Text))), 2);
+                double q = Math.Round(squareFunction(p), 2);
+                pTextBox.Text = p.ToString();
+                qTextBox.Text = q.ToString();
+            
         }
         /// <summary>
         /// Metoda wypisująca postać ogólną funckji kwadratowej
         /// </summary>
         public void basicFormFunction()
         {
-            basicFormTextBox.Text = aBox.Text + "x² + (" + bBox.Text + "x) + (" + cBox.Text+")";
+            
+                basicFormTextBox.Text = aBox.Text + "x² + (" + bBox.Text + "x) + (" + cBox.Text + ")";
+            
         }
         /// <summary>
         /// Metoda wypisująca postać iloczynową funkcji kwadratowej
         /// </summary>
         public void specialFormFunction()
         {
-            double a = delta();
-            if (a > 0)
-            {
-                specialFormTextBox.Text = aBox.Text + "*(x - (" + x1TextBox.Text + "))*(x- (" + x2TextBox.Text + "))";
-            }
-            else if(a==0)
-            {
-                specialFormTextBox.Text = aBox.Text + "*(x - (" + x1TextBox.Text + "))²";
-            }
-            else
-            {
-                specialFormTextBox.Text = null;
-            }
+            
+                double a = delta();
+                if (a > 0)
+                {
+                    specialFormTextBox.Text = aBox.Text + "*(x - (" + x1TextBox.Text + "))*(x- (" + x2TextBox.Text + "))";
+                }
+                else if (a == 0)
+                {
+                    specialFormTextBox.Text = aBox.Text + "*(x - (" + x1TextBox.Text + "))²";
+                }
+                else
+                {
+                    specialFormTextBox.Text = null;
+                }
+            
         }
         /// <summary>
         /// Metoda wypisująca postać kanoniczną funkcji kwadratowej
         /// </summary>
         public void canonicalFormFunction()
         {
-            canonicaTextBox.Text = aBox.Text + "*(x - (" + pTextBox.Text + "))² + " + "(" + qTextBox.Text + ")";
+            
+                canonicaTextBox.Text = aBox.Text + "*(x - (" + pTextBox.Text + "))² + " + "(" + qTextBox.Text + ")";
+            
         }
         /// <summary>
         /// Metoda obliczająca wartość funkcji kwadratowej
@@ -258,18 +288,26 @@ namespace MathToolsMenu
         {
             if (aBox.Text.Length != 0 && bBox.Text.Length != 0 && cBox.Text.Length != 0 && aBox.Text != "," && bBox.Text != "," && cBox.Text != ",")
             {
-                chart.Series[1].Points.Clear();
-
-                for (int i = -20; i <= 20; i++)
+                if (double.Parse(aBox.Text) != 0)
                 {
-                    chart.Series[1].Points.AddXY(i, squareFunction(i));
+                    chart.Series[1].Points.Clear();
+
+                    for (int i = -20; i <= 20; i++)
+                    {
+                        chart.Series[1].Points.AddXY(i, squareFunction(i));
+                    }
+                    delta();
+                    xSquareFunction();
+                    pqFunction();
+                    basicFormFunction();
+                    specialFormFunction();
+                    canonicalFormFunction();
                 }
-                delta();
-                xSquareFunction();
-                pqFunction();
-                basicFormFunction();
-                specialFormFunction();
-                canonicalFormFunction();
+                else
+                {
+                    chart.Series[1].Points.Clear();
+                    squareClearAll();
+                }
             }
         }
 
@@ -314,12 +352,21 @@ namespace MathToolsMenu
         {
             if (expoATextBox.Text.Length != 0 && expoATextBox.Text != "," && double.Parse(expoATextBox.Text) > 0)
             {
-                chart.Series[1].Points.Clear();
-                for (double i = -9.8; i < 11; i=i+0.02)
+                if (double.Parse(expoATextBox.Text) < 413)
                 {
-                    chart.Series[1].Points.AddXY(i, expoFunction(i));
+                    chart.Series[1].Points.Clear();
+                    chart.Series[1].Points.Clear();
+                    for (double i = -9.8; i < 11; i = i + 0.02)
+                    {
+                        chart.Series[1].Points.AddXY(i, expoFunction(i));
+                    }
+                    expoTypeFuntion();
                 }
-                expoTypeFuntion();
+                else
+                {
+                    chart.Series[1].Points.Clear();
+                    expoTypeFuntion();
+                }
             }
         }
         /// <summary>
